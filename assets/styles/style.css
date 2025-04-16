@@ -2,6 +2,10 @@
     font-family: 'Montserrat';
     src: url('/assets/fonts/Montserrat-VariableFont_wght.ttf');
 }
+@font-face {
+    font-family: 'Inter';
+    src: url('/assets/fonts/Inter-VariableFont_opsz\,wght.ttf');
+}
 *{
     box-sizing: border-box;
 }
@@ -19,6 +23,7 @@ html,body {
     margin: 0;
     padding: 0;
     font-family: 'Montserrat', sans-serif;
+    font-size:10px;
 }
 .container{ 
     max-width:1200px;
@@ -43,7 +48,9 @@ html,body {
 /*header*/
 .header{
     background: var(--white);
-    padding:23px 120px;
+    padding:23px 0px;
+    display: flex;
+    align-items: center;
 }
 .header_inner{
     display: flex;
@@ -57,7 +64,7 @@ html,body {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
+    gap: 83px;
 }
 .rating{
     display: flex;
@@ -105,21 +112,43 @@ html,body {
     gap:8px;
 }
 .numbers{
-font-size: 16px;
-line-height: 17px;
-text-align: right;
-display: flex;
-flex-direction: row;
-align-items: center;
-gap:8px;
+    font-size: 16px;
+    line-height: 17px;
+    text-align: right;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap:8px;
 }
 .numbers span{
-font-size: 20px;
-line-height: 100%;
+    font-size: 20px;
+    line-height: 100%;
 }
 .link_number{
-font-size: 14px;
-line-height: 15px;
-color:var(--red);
+    font-size: 14px;
+    line-height: 15px;
+    color:var(--red);
 }
 /*home*/
+.home{
+    background:var(--linear-black );
+}
+.nav{
+    padding:20px 0;
+    display: flex;
+    flex-direction: row;
+    border-top:2px solid var(--gray);
+    border-bottom:2px solid var(--gray);
+    justify-content: center;
+}
+.nav_link{
+    display: flex;
+    justify-content: center;
+    width:200px;
+    color:var(--white);
+    font-family: Inter;
+    font-size: 16px;
+    line-height: 100%;
+    text-transform: uppercase;
+    text-decoration: none;
+}
