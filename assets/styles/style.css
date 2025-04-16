@@ -1,0 +1,125 @@
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/assets/fonts/Montserrat-VariableFont_wght.ttf');
+}
+*{
+    box-sizing: border-box;
+}
+html{
+    --red: rgba(254, 0, 0, 1);
+    --red-opacity: rgba(254, 0, 0, 0.5);
+    --linear-black:linear-gradient(101.84deg, #161114 0.21%, #464149 99.79%);
+    --black: rgba(0, 0, 0, 1);
+    --gray: rgba(126, 126, 126, 1);
+    --white-light:rgba(240, 241, 246, 1);
+    --white: rgba(255, 255, 255, 1);
+}
+html,body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+.container{ 
+    max-width:1200px;
+    margin: 0 auto;
+}
+.text_underline{
+    text-decoration: underline;
+    text-decoration-style: solid;
+}
+.f_400{
+    font-weight: 400;
+}
+.f_500{
+    font-weight: 500;
+}
+.f_600{
+    font-weight: 600;
+}
+.f_700{
+    font-weight: 700;
+}
+/*header*/
+.header{
+    background: var(--white);
+    padding:23px 120px;
+}
+.header_inner{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap:63px;
+}
+.header_info{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+.rating{
+    display: flex;
+    flex-direction: row;
+    gap:11px;
+}
+.mark{
+    background: var(--red);
+    width: 60px;
+    height: 60px;
+    border-radius: 1000px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.mark_text{
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 0.12px;
+    width:124px;
+}
+.social{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap:16px;
+}
+.social_btn{
+    background: var(--black);
+    border-radius:1000px;
+    width:46px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.social-icon{
+    width:max-content;
+    height: max-content;
+}
+.contacts{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    gap:8px;
+}
+.numbers{
+font-size: 16px;
+line-height: 17px;
+text-align: right;
+display: flex;
+flex-direction: row;
+align-items: center;
+gap:8px;
+}
+.numbers span{
+font-size: 20px;
+line-height: 100%;
+}
+.link_number{
+font-size: 14px;
+line-height: 15px;
+color:var(--red);
+}
+/*home*/
