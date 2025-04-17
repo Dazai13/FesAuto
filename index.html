@@ -9,53 +9,73 @@
 <body>
     <header class="header">
         <div class="container">
-            <div class="header_inner">
-                <div class="logo">
-                    <img src="assets/images/Logo.webp" alt="">
-                </div>
-                <div class="header_info">
-                    <div class="rating">
-                        <div class="mark">
-                            <img src="assets/images/mark.svg" alt="">
-                        </div>
-                        <div class="mark_info">
-                            <div class="starts">
-                                <img src="assets/images/star.svg" alt="">
-                                <img src="assets/images/star.svg" alt="">
-                                <img src="assets/images/star.svg" alt="">
-                                <img src="assets/images/star.svg" alt="">
-                                <img src="assets/images/star.svg" alt="">
-                            </div>
-                            <div class="mark_text f_500">
-                                рейтинг компании на <span class ="f_700">Яндекс Отзывы</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="social">
-                        <div class="social_btn">
-                            <img src="assets/images/Whatsapp.svg" alt="">
-                        </div>
-                        <div class="social_btn">
-                            <img src="assets/images/Telegram.svg" alt="">
-                        </div>
-                    </div>
-                    <div class="contacts">
-                        <div class="numbers f_500">
-                            Москва
-                            <img src="assets/images/phone.svg" alt="">
-                            <span class = "text_underline f_700">+7 (861) 206-56-33</span>
-                        </div>
-                        <div class="numbers f_500">
-                            Краснодар
-                            <img src="assets/images/phone.svg" alt="">
-                            <span class = "text_underline f_700">+7 (861) 206-56-33</span>
-                        </div>
-                        <div class="link_number text_underline f_600">Заказать обратный звонок</div>
-                    </div>
-                </div>
+          <div class="header_inner">
+            <div class="header_logo">
+              <img src="assets/images/Logo.webp" alt="">
             </div>
+            <div class="header_info">
+              <div class="rating">
+                <div class="mark">
+                  <img src="assets/images/mark.svg" alt="">
+                </div>
+                <div class="mark_info">
+                  <div class="starts">
+                    <img src="assets/images/star.svg" alt="">
+                    <img src="assets/images/star.svg" alt="">
+                    <img src="assets/images/star.svg" alt="">
+                    <img src="assets/images/star.svg" alt="">
+                    <img src="assets/images/star.svg" alt="">
+                  </div>
+                  <div class="mark_text f_500"> рейтинг компании на <span class="f_700">Яндекс Отзывы</span>
+                  </div>
+                </div>
+              </div>
+              <div class="social">
+                <div class="social_btn">
+                  <img src="assets/images/Whatsapp.svg" alt="">
+                </div>
+                <div class="social_btn">
+                  <img src="assets/images/Telegram.svg" alt="">
+                </div>
+              </div>
+              <div class="contacts">
+                <div class="numbers f_500"> Москва <img src="assets/images/phone.svg" alt="">
+                  <span class="text_underline f_700">+7 (861) 206-56-33</span>
+                </div>
+                <div class="numbers f_500"> Краснодар <img src="assets/images/phone.svg" alt="">
+                  <span class="text_underline f_700">+7 (861) 206-56-33</span>
+                </div>
+                <div class="link_number text_underline f_600">Заказать обратный звонок</div>
+              </div>
+            </div>
+            <button id="menu-toggle">
+              <img id="menu-icon" src="assets/images/burger.svg" alt="Открыть меню" />
+            </button>
+          </div>
         </div>
     </header>
+    <div class="mobile-menu hidden">
+    <div class="menu_line"></div>
+    <div id="menu" class="menu">
+        <a href="" class="nav_link f_600">О нас</a>
+        <a href="" class="nav_link f_600">Рассчет</a>
+        <a href="" class="nav_link f_600">наши кейсы </a>
+        <a href="" class="nav_link f_600">Этапы работ</a>
+        <a href="" class="nav_link f_600">В наличии</a>
+        <a href="" class="nav_link f_600">Контакты</a>
+        <div class="social">
+        <div class="social_btn">
+            <img src="assets/images/whatsappmob.svg" alt="">
+        </div>
+        <div class="social_btn">
+            <img src="assets/images/tgmob.svg" alt="">
+        </div>
+        <div class="social_btn">
+            <img src="assets/images/phone_white.svg" alt="">
+        </div>
+        </div>
+    </div>
+    </div>
     <div class="home">
         <div class="nav">
             <a href="" class="nav_link f_600">Рассчет</a>
@@ -136,86 +156,93 @@
         </div>
     </div>
 
-    <footer class = "footer">
-        <div class="container">
-            <div class="footer_inner">
-                <div class="footer_logo">
-                    <img src="assets/images/Logo2.png" alt="">
-                </div>
-                <div class="footer_nav">
-                    <div class="nav_section">
-                        <div class="nav_title">
-                            <h1 class = "f_600">Купить</h1>
+    <footer class="footer">
+    	<div class="container">
+    		<div class="footer_inner">
+    			<div class="footer_logo">
+    				<img src="assets/images/Logo2.png" alt="">
+    			</div>
+    			<div class="footer_nav">
+    				<div class="nav_section">
+    					<div class="nav_title">
+    						<h1 class="f_600">Купить</h1>
+    					</div>
+    					<div class="nav_links">
+    						<span class="f_400">Легковые автомобили</span>
+    						<span class="f_400">Авто из Германии</span>
+    						<span class="f_400">Авто из Китая</span>
+    						<span class="f_400">Авто из Кореи</span>
+    					</div>
+                        <div class="nav_links_mobile_ver">
+    						<span class="f_400">Легковые автомобили,</span>
+    						<span class="f_400">Авто из Германии,</span>
+    						<span class="f_400">Авто из Китая,</span>
+    						<span class="f_400">Авто из Кореи,</span>
                         </div>
-                        <div class="nav_links">
-                            <span class="f_400">Легковые автомобили</span>
-                            <span class="f_400">Авто из Германии</span>
-                            <span class="f_400">Авто из Китая</span>
-                            <span class="f_400">Авто из Кореи</span>
-                        </div>
-                    </div>
-                    <div class="nav_section">
-                        <div class="nav_title">
-                            <h1 class = "f_600">Услуги</h1>
-                        </div>
-                        <div class="nav_links">
-                            <span class="f_400">Кредит</span>
-                            <span class="f_400">Страхование</span>
-                            <span class="f_400">Покупка онлайн с доставкой</span>
-                            <span class="f_400">Комиссионная продажа</span>
-                            <span class="f_400">Гарантия</span>
-                            <span class="f_400">Лизинг</span>
-                        </div>
-                    </div>
-                    <div class="nav_section">
-                        <div class="nav_title">
-                            <h1 class = "f_600">Компания</h1>
-                        </div>
-                        <div class="nav_links">
-                            <span class="f_400">Рассчет</span>
-                            <span class="f_400">Наши кейсы </span>
-                            <span class="f_400">О нас</span>
-                            <span class="f_400">Этапы работ</span>
-                            <span class="f_400">В наличии</span>
-                            <span class="f_400">Контакты</span>
-                        </div>
-                    </div>
-                    <div class="nav_section">
-                        <div class="nav_contact">
-                            <div class="nav_title">
-                                <h1 class = "f_600">Котакты</h1>
-                            </div>
-                            <div class="nav_links">
-                                <span class="f_400">+7 499 495 23 35</span>
-                                <span class="f_400">+7 861 218 00 64</span>
-                                <span class="f_400">info@fesauto.ru</span>
-                            </div>
-                        </div>
-                        <div class="nav_social">
-                            <div class="nav_title">
-                                <h1 class = "f_600">Мы в соцсетях</h1>
-                            </div>
-                            <div class="social_icons">
-                                <div class="social_frame">
-                                    <img src="assets/images/Telegram.svg" alt="">
-                                </div>
-                                <div class="social_frame">
-                                    <img src="assets/images/youtube.svg" alt="">               
-                                </div>
-                                <div class="social_frame">
-                                    <img src="assets/images/vk.svg" alt="">    
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="footer_line"></div>
-                <div class="footer_down">
-                    <span class="f_400">© 2025 FesAuto</span>
-                    <span class="f_400">Политика обработки персональных данных</span>
-                </div>
-            </div>
-        </div>
+    				</div>
+    				<div class="nav_section">
+    					<div class="nav_title">
+    						<h1 class="f_600">Услуги</h1>
+    					</div>
+    					<div class="nav_links">
+    						<span class="f_400">Кредит</span>
+    						<span class="f_400">Страхование</span>
+    						<span class="f_400">Покупка онлайн с доставкой</span>
+    						<span class="f_400">Комиссионная продажа</span>
+    						<span class="f_400">Гарантия</span>
+    						<span class="f_400">Лизинг</span>
+    					</div>
+    				</div>
+    				<div class="nav_section">
+    					<div class="nav_title">
+    						<h1 class="f_600">Компания</h1>
+    					</div>
+    					<div class="nav_links">
+    						<span class="f_400">Рассчет</span>
+    						<span class="f_400">Наши кейсы </span>
+    						<span class="f_400">О нас</span>
+    						<span class="f_400">Этапы работ</span>
+    						<span class="f_400">В наличии</span>
+    						<span class="f_400">Контакты</span>
+    					</div>
+    				</div>
+    				<div class="nav_section">
+    					<div class="nav_contact">
+    						<div class="nav_title">
+    							<h1 class="f_600">Котакты</h1>
+    						</div>
+    						<div class="nav_links">
+    							<span class="f_400">+7 499 495 23 35</span>
+    							<span class="f_400">+7 861 218 00 64</span>
+    							<span class="f_400">info@fesauto.ru</span>
+    						</div>
+    					</div>
+    					<div class="nav_social">
+    						<div class="nav_title">
+    							<h1 class="f_600">Мы в соцсетях</h1>
+    						</div>
+    						<div class="social_icons">
+    							<div class="social_frame">
+    								<img src="assets/images/Telegram.svg" alt="">
+    							</div>
+    							<div class="social_frame">
+    								<img src="assets/images/youtube.svg" alt="">
+    							</div>
+    							<div class="social_frame">
+    								<img src="assets/images/vk.svg" alt="">
+    							</div>
+    						</div>
+    					</div>
+    				</div>
+    			</div>
+    			<div class="footer_line"></div>
+    			<div class="footer_down">
+    				<span class="f_400">© 2025 FesAuto</span>
+    				<span class="f_400">Политика обработки персональных данных</span>
+    			</div>
+    		</div>
+    	</div>
     </footer>
+    <script src = "assets/scripts/script.js"></script>
 </body>
 </html>
