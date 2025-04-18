@@ -224,14 +224,16 @@ input[type="checkbox"]:checked::after {
   height: 62px;
 }
 
-.btn_form:nth-child(1) {
-  display: flex !important;
+.btn_form{
+  display: flex;
   width: 100%;
   margin-top: 20px;
+  justify-content: center;
+  align-items: center;
 }
 
-.btn_form:nth-child(2) {
-  display: none !important;
+.btn_form_mob{
+  display: none;
 }
 
 .form_image_block {
@@ -259,7 +261,6 @@ input[type="checkbox"]:checked::after {
   color: var(--gray);
 }
 
-/* ========== MEDIA QUERY ========== */
 @media screen and (max-width: 1199px) {
   .form {
     height: 929px;
@@ -360,12 +361,31 @@ input[type="checkbox"]:checked::after {
     line-height: 26px;
   }
 
-  .btn_form:first-child {
+  .btn_form {
     display: none !important;
   }
 
-  .btn_form:last-child {
+  .btn_form_mob{
     display: flex !important;
+    justify-content: center;
+  align-items: center;
+  font-size:12px;
+  width: 260px;
+  padding:10px 0;
+  height: 35px;
+  margin-top:10px;
+  }
+  .inputs input{
+    height: 35px;
+    width: 260px;
+    font-size:12px;
+    padding:10px 0;
+  }
+  .inputs input::placeholder{
+    font-size:12px;
+  }
+  .inputs{
+    gap:5px;
   }
 }
 
