@@ -1,4 +1,4 @@
-@font-face{font-family:"Montserrat";src:url(/assets/fonts/Montserrat-VariableFont_wght.ttf)}@font-face{font-family:"Inter";src:url(/assets/fonts/Inter-VariableFont_opsz\,wght.ttf)}*{-webkit-box-sizing:border-box;box-sizing:border-box}:root{--red:rgba(254, 0, 0, 1);--red-opacity:rgba(254, 0, 0, 0.5);--linear-black:linear-gradient(101.84deg, #161114 0.21%, #464149 99.79%);--black:rgba(0, 0, 0, 1);--gray:rgba(126, 126, 126, 1);--white-light:rgba(240, 241, 246, 1);--white:rgba(255, 255, 255, 1)}h1{margin:0}html,body{height:100%;margin:0;padding:0;font-family:"Montserrat",sans-serif;font-size:10px}@media screen and (max-width:1199px){.container{max-width:280px;margin:0 auto}}@media screen and (min-width:1200px){.container{max-width:1200px;margin:0 auto}}.text_underline{text-decoration:underline;-webkit-text-decoration-style:solid;text-decoration-style:solid}.f_400{font-weight:400}.f_500{font-weight:500}.f_600{font-weight:600}.f_700{font-weight:700}.f_900{font-weight: 900;}
+@font-face{font-family:"Montserrat";src:url(/assets/fonts/Montserrat-VariableFont_wght.ttf)}@font-face{font-family:"Inter";src:url(/assets/fonts/Inter-VariableFont_opsz\,wght.ttf)}*{-webkit-box-sizing:border-box;box-sizing:border-box}body{overflow-x:hidden;}:root{--red:rgba(254, 0, 0, 1);--red-opacity:rgba(254, 0, 0, 0.5);--linear-black:linear-gradient(101.84deg, #161114 0.21%, #464149 99.79%);--black:rgba(0, 0, 0, 1);--gray:rgba(126, 126, 126, 1);--white-light:rgba(240, 241, 246, 1);--white:rgba(255, 255, 255, 1)}h1{margin:0}html,body{height:100%;margin:0;padding:0;font-family:"Montserrat",sans-serif;font-size:10px}@media screen and (max-width:1199px){.container{max-width:280px;margin:0 auto}}@media screen and (min-width:1200px){.container{max-width:1200px;margin:0 auto}}.text_underline{text-decoration:underline;-webkit-text-decoration-style:solid;text-decoration-style:solid}.f_400{font-weight:400}.f_500{font-weight:500}.f_600{font-weight:600}.f_700{font-weight:700}.f_900{font-weight: 900;}
 .btn {
   padding: 20px 40px;
   color: var(--white);
@@ -15,14 +15,12 @@
     transform 0.3s ease,
     box-shadow 0.3s ease;
 }
-
 .btn:hover {
   background: var(--white);
   color: var(--red);
   transform: translateY(-3px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
-
 .nav_link:hover, .menu .nav_link:hover{
   color:var(--red);
   transition: color .3s;
@@ -61,7 +59,8 @@
   background-blend-mode: normal; 
   margin-top:50px; 
 }
-
+/*карта*/
+.map,.map_inner{position:relative}.map{margin-bottom:0}.map iframe{border:none;width:100%;height:780px}.map .container{position:absolute;top:0;left:50%;-webkit-transform:translate(-50%,-50%);-ms-transform:translate(-50%,-50%);transform:translate(-50%,-50%);width:100%;z-index:10;pointer-events:none}.map_point{position:absolute;z-index:50;background:var(--black);padding:20px 40px;width:363px;height:223px;border:2px solid var(--red);color:var(--white)}.map_point:first-child{top:162px;border-bottom:0;border-radius:10px 10px 0 0}.map_point:last-child{top:395px;border-top:0;border-radius:0 0 10px 10px}.map_town{font-size:32px;line-height:100%;color:var(--white)}.map_line{height:2px;margin-top:10px;width:100%;background:var(--white)}.map_info{margin-top:20px;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;gap:20px;color:var(--gray);font-size:20px}.call,.gps,.mail{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;gap:4px}@media screen and (max-width:1199px){.map iframe{height:326px}.map{margin-bottom:328px}.map_point{width:280px;height:196px;padding:20px}.map_town{font-size:16px}.map_line{width:180px}.map_info{font-size:12px}}
 /*footer*/
 .footer {
 background-color: var(--black);
