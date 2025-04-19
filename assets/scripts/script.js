@@ -1,3 +1,32 @@
+$(document).ready(function(){
+  $('.car_list_slider').slick({
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    centerMode: true,
+    centerPadding: '40px',
+    arrows: true,
+    loop: true,
+    infinite: true,
+    prevArrow: $('.car_list_slider_button_prev'),
+    nextArrow: $('.car_list_slider_button_next'),
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1
+        }
+      }
+    ]
+  });
+});
+
+
 document.addEventListener("DOMContentLoaded",(function(){document.querySelectorAll(".scroll-link").forEach((t=>{t.addEventListener("click",(function(t){t.preventDefault();const e=this.dataset.target,n=document.getElementById(e);if(n){n.scrollIntoView({behavior:"smooth",block:"start"}),history.pushState?history.pushState(null,null,window.location.pathname):window.location.hash="";const t=document.querySelector(".mobile-menu");t&&t.classList.contains("active")&&t.classList.remove("active")}}))}));const t=document.getElementById("menu-toggle"),e=document.querySelector(".mobile-menu");t&&e&&t.addEventListener("click",(function(){e.classList.toggle("active")}))}));
 
 var acc = document.getElementsByClassName("accordion");
@@ -24,6 +53,7 @@ for (let i = 0; i < acc.length; i++) {
     }
   });
 }
+
 
 
 
@@ -144,4 +174,11 @@ const questions = [
   });
   
   // начальная загрузка
+
   renderQuestion(currentStep);
+
+
+
+
+
+  
