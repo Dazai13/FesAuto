@@ -26,6 +26,22 @@ for (let i = 0; i < acc.length; i++) {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 const questions = [
     {
       text: "Автомобиль в каком кузове вы хотите?",
