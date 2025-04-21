@@ -72,52 +72,62 @@
 						<div class="quiz-step active" data-step="0">
 						  <h2 class="quiz-question">Автомобиль в каком кузове вы хотите?</h2>
 						  <div class="quiz-options">
-							<label class="option"><input type="radio" name="body" value="Седан"><img src="sedan.png"><span>Седан</span></label>
-							<label class="option"><input type="radio" name="body" value="Хэтчбек"><img src="hatchback.png"><span>Хэтчбек</span></label>
-							<label class="option"><input type="radio" name="body" value="Кроссовер"><img src="crossover.png"><span>Кроссовер</span></label>
-							<label class="option"><input type="radio" name="body" value="Минивэн"><img src="minivan.png"><span>Минивэн</span></label>
-							<label class="option"><input type="radio" name="body" value="Внедорожник"><img src="suv.png"><span>Внедорожник</span></label>
+							<label class="option"><input type="radio" name="body" value="Седан"><div class="option_img"><img src="assets/images/Group 27777.png"></div><span>Седан</span></label>
+							<label class="option"><input type="radio" name="body" value="Хэтчбек"><div class="option_img"><img src="assets/images/Group 145574.png"></div><span>Хэтчбек</span></label>
+							<label class="option"><input type="radio" name="body" value="Кроссовер"><div class="option_img"><img src="assets/images/Group 145575.png"></div><span>Кроссовер</span></label>
+							<label class="option"><input type="radio" name="body" value="Минивэн"><div class="option_img"><img src="assets/images/изображение_2024-11-06_091813261 2 1(2).png"></div><span>Минивэн /
+								Микроавтобус</span></label>
+							<label class="option"><input type="radio" name="body" value="Внедорожник"><div class="option_img"><img src="assets/images/Group 27771.png"></div><span>Внедорожник /
+								паркетиник</span></label>
 						  </div>
 						</div>
 					  
 						<!-- Вопрос 2 -->
 						<div class="quiz-step" data-step="1">
-						  <h2 class="quiz-question">Какой бюджет вы планируете?</h2>
-						  <div class="quiz-options">
-							<label class="option"><input type="radio" name="budget" value="до 1 млн"><img src="budget1.png"><span>До 1 млн</span></label>
-							<label class="option"><input type="radio" name="budget" value="1-1.5 млн"><img src="budget2.png"><span>1 - 1.5 млн</span></label>
-							<label class="option"><input type="radio" name="budget" value="1.5-2 млн"><img src="budget3.png"><span>1.5 - 2 млн</span></label>
-							<label class="option"><input type="radio" name="budget" value="2-3 млн"><img src="budget4.png"><span>2 - 3 млн</span></label>
+						  <h2 class="quiz-question">На какой бюджет вы рассчитываете?</h2>
+						  <div class="quiz-options-inputs">
+							<label class="option"><input type="radio" name="budget" value="до 3 млн"><span>до 3 000 000 руб.</span></label>
+							<label class="option"><input type="radio" name="budget" value="3-5 млн"><span>3 000 000 - 5 000 000 руб.</span></label>
+							<label class="option"><input type="radio" name="budget" value="5-8 млн"><span>5 000 000 - 8 000 000 руб.</span></label>
+							<label class="option"><input type="radio" name="budget" value="больше 8 млн"><span>больше 8 000 000 руб.</span></label>
 						  </div>
 						</div>
 					  
 						<!-- Вопрос 3 -->
 						<div class="quiz-step" data-step="2">
-						  <h2 class="quiz-question">Какой тип топлива предпочитаете?</h2>
-						  <div class="quiz-options">
-							<label class="option"><input type="radio" name="fuel" value="Бензин"><img src="fuel1.png"><span>Бензин</span></label>
-							<label class="option"><input type="radio" name="fuel" value="Дизель"><img src="fuel2.png"><span>Дизель</span></label>
-							<label class="option"><input type="radio" name="fuel" value="Гибрид"><img src="fuel3.png"><span>Гибрид</span></label>
-							<label class="option"><input type="radio" name="fuel" value="Электро"><img src="fuel4.png"><span>Электро</span></label>
+						  <h2 class="quiz-question">В каком городе нужна будет доставка?</h2>
+						  <div class="quiz-options-inputs">
+							<label class="option"><input type="radio" name="town" value="Краснодар"><span>Краснодар</span></label>
+							<label class="option"><input type="radio" name="town" value="Москва"><span>Москва</span></label>
+							<label class="option"><input type="radio" name="town" value="Другой город"><span>Другой город</span></label>
 						  </div>
 						</div>
 					  
 						<!-- Вопрос 4 -->
 						<div class="quiz-step" data-step="3">
-						  <h2 class="quiz-question">Планируете ли обмен по Trade-in?</h2>
+						  <h2 class="quiz-question"><span>Оставьте контакты,</span> и наш специалист сообщит предварительное решение
+							по вашей заявке</h2>
 						  <div class="quiz-options">
-							<label class="option"><input type="radio" name="tradein" value="Да"><img src="yes.png"><span>Да</span></label>
-							<label class="option"><input type="radio" name="tradein" value="Нет"><img src="no.png"><span>Нет</span></label>
-						  </div>
+								<form action="" class="quiz_form">
+									<input type = "text" placeholder="Как вас зовут">
+									<input type = "text" placeholder="Ваш номер телефона">
+									<button class="btn btn_form_quiz f_700 btn_form">Получить консультацию</button>
+									<div class=checkbox>
+										<input class=checbox type=checkbox>
+										<div class="f_500 quiz_checbox_text">Нажимая на кнопку вы соглашаетесь политикой конфиденциальности, на уведомление об рекламных акциях и рекламных компаний по SMS</div>
+									</div>
+								</form>						  
+							</div>
 						</div>
 					  
 						<div class="quiz-nav">
 							<div class="quiz-text">
-
+								<img src="assets/images/Icon.svg" alt="">
+								Выберите вариант ответа и нажмите кнопку «Далее»
 							</div>
 							<div class="quiz-buttons">
-								<button id="prevBtn" disabled>НАЗАД</button>
-								<button id="nextBtn" disabled>ДАЛЕЕ</button>
+								<button class = "btn btn_quiz" id="prevBtn" disabled>НАЗАД</button>
+								<button class = "btn btn_quiz" id="nextBtn" disabled>ДАЛЕЕ</button>
 							</div>
 							</div>
 						</div>

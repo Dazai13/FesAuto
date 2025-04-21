@@ -1,3 +1,67 @@
+const steps = document.querySelectorAll('.quiz-step');
+const nextBtn = document.getElementById('nextBtn');
+const prevBtn = document.getElementById('prevBtn');
+const progress = document.querySelector('.progress');
+const quiznavtext = document.querySelector('.quiz-text');
+const questionCount = document.getElementById('questionCount');
+
+let currentStep = 0;
+
+function showStep(index) {
+  steps.forEach((step, i) => {
+    step.classList.toggle('active', i === index);
+  });
+
+  progress.style.width = `${((index + 1) / steps.length) * 100}%`;
+  questionCount.textContent = `${index + 1} вопрос из ${steps.length}`;
+
+  prevBtn.disabled = index === 0;
+
+  const inputs = steps[index].querySelectorAll('input');
+  const isAnswered = Array.from(inputs).some(input => input.checked);
+  nextBtn.disabled = !isAnswered;
+
+  nextBtn.style.display = index === steps.length - 1 ? 'none' : 'inline-block';
+  quiznavtext.style.display = index === steps.length - 1 ? 'none' : 'flex'
+
+  inputs.forEach(input => {
+    input.addEventListener('change', () => {
+      nextBtn.disabled = false;
+      warning.style.display = 'none';
+    });
+  });
+}
+
+nextBtn.addEventListener('click', () => {
+  const selected = steps[currentStep].querySelector('input:checked');
+  if (!selected) {
+    warning.style.display = 'block';
+    return;
+  }
+
+  console.log(`Ответ на ${currentStep + 1}: ${selected.value}`);
+
+
+  currentStep++;
+  if (currentStep < steps.length) {
+    showStep(currentStep);
+  } else {
+    document.querySelector('.quiz-right').innerHTML = `
+      <h2>Спасибо за прохождение теста!</h2>
+      <p>Мы свяжемся с вами для подбора автомобиля.</p>
+    `;
+  }
+});
+
+prevBtn.addEventListener('click', () => {
+  if (currentStep > 0) {
+    currentStep--;
+    showStep(currentStep);
+  }
+});
+
+showStep(currentStep);
+
 $(document).ready(function(){
   $('.car_list_slider').slick({
     slidesToShow: 3,
@@ -99,69 +163,7 @@ for (let i = 0; i < acc.length; i++) {
 
 
 
-const steps = document.querySelectorAll('.quiz-step');
-const nextBtn = document.getElementById('nextBtn');
-const prevBtn = document.getElementById('prevBtn');
-const warning = document.getElementById('warning');
-const progress = document.querySelector('.progress');
-const questionCount = document.getElementById('questionCount');
 
-let currentStep = 0;
-
-function showStep(index) {
-  steps.forEach((step, i) => {
-    step.classList.toggle('active', i === index);
-  });
-
-  progress.style.width = `${((index + 1) / steps.length) * 100}%`;
-  questionCount.textContent = `${index + 1} вопрос из ${steps.length}`;
-
-  prevBtn.disabled = index === 0;
-  warning.style.display = 'none';
-
-  const inputs = steps[index].querySelectorAll('input');
-  const isAnswered = Array.from(inputs).some(input => input.checked);
-  nextBtn.disabled = !isAnswered;
-
-  // 👇 Показываем или скрываем кнопку "Далее" в зависимости от шага
-  nextBtn.style.display = index === steps.length - 1 ? 'none' : 'inline-block';
-
-  inputs.forEach(input => {
-    input.addEventListener('change', () => {
-      nextBtn.disabled = false;
-      warning.style.display = 'none';
-    });
-  });
-}
-
-nextBtn.addEventListener('click', () => {
-  const selected = steps[currentStep].querySelector('input:checked');
-  if (!selected) {
-    warning.style.display = 'block';
-    return;
-  }
-
-  console.log(`Ответ на ${currentStep + 1}: ${selected.value}`);
-
-  currentStep++;
-  if (currentStep < steps.length) {
-    showStep(currentStep);
-  } else {
-    document.querySelector('.quiz-right').innerHTML = `
-      <h2>Спасибо за прохождение теста!</h2>
-      <p>Мы свяжемся с вами для подбора автомобиля.</p>
-    `;
-  }
-});
-
-prevBtn.addEventListener('click', () => {
-  if (currentStep > 0) {
-    currentStep--;
-    showStep(currentStep);
-  }
-});
-
-showStep(currentStep);
 
 
 
