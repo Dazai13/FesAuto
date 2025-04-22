@@ -61,47 +61,34 @@ prevBtn.addEventListener('click', () => {
 });
 
 showStep(currentStep);
-
 $(document).ready(function(){
   $('.car_list_slider').slick({
     slidesToShow: 3,
     slidesToScroll: 1,
     centerMode: true,
     centerPadding: '40px',
-    arrows: true,
-    loop: true,
     infinite: true,
+    arrows: true,
     prevArrow: $('.car_list_slider_button_prev'),
     nextArrow: $('.car_list_slider_button_next'),
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 1199,
         settings: {
-          slidesToShow: 2
-        }
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 1
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          arrows: true,
         }
       }
     ]
   });
 });
 
-$(document).ready(function(){
-  $('.benefit_slider').slick({
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    arrows: true,
-    dots: true,
-    loop: true,
-    infinite: true,
-    prevArrow: $('.car_list_slider_button_prev'),
-    nextArrow: $('.car_list_slider_button_next'),
-  });
-});
+
+
+
+
+
 
 $(document).ready(function () {
   if (!$('.process_slides_mob').hasClass('slick-initialized')) {
@@ -114,6 +101,25 @@ $(document).ready(function () {
     });
   }
 });
+
+
+
+$(document).ready(function(){
+  $('.benefit_slider').slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: true,
+    dots: true,
+    loop: true,
+    infinite: true,
+    prevArrow: $('.'),
+    nextArrow: $('.'),
+  });
+});
+
+
+
+
 
 
 
@@ -158,11 +164,71 @@ for (let i = 0; i < acc.length; i++) {
 
 
 
+  const amountInput = document.getElementById('amountRange');
+  const termInput = document.getElementById('termRange');
+  const amountDisplay = document.querySelectorAll('.range-label')[0];
+  const termDisplay = document.querySelectorAll('.range-label')[1];
+  const monthlyAmount = document.querySelector('.amount');
+
+  const interestRate = 9.9; // ставка по умолчанию
+
+  function formatCurrency(value) {
+    return value.toLocaleString('ru-RU') + ' руб.';
+  }
+
+  function calculatePayment() {
+    const S = parseFloat(amountInput.value);        // сумма кредита
+    const n = parseInt(termInput.value);            // срок в месяцах
+    const r = (interestRate / 100) / 12;            // месячная процентная ставка
+
+    const monthly =
+      S * (r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
+
+    monthlyAmount.textContent = formatCurrency(Math.round(monthly));
+    amountDisplay.textContent = `${(S / 1000).toFixed(0)} тыс. руб.`;
+    termDisplay.textContent = `${n} мес.`;
+  }
+
+  amountInput.addEventListener('input', calculatePayment);
+  termInput.addEventListener('input', calculatePayment);
+
+  // Первичный расчёт при загрузке страницы
+  calculatePayment();
+
+  const amount0 = document.getElementById('amountRange0');
+  const term0 = document.getElementById('termRange0');
+  const amountLabel0 = document.getElementById('amountLabel0');
+  const termLabel0 = document.getElementById('termLabel0');
+  const payment0 = document.getElementById('payment0');
+
+  function formatCurrency(val) {
+    return val.toLocaleString('ru-RU') + ' руб.';
+  }
+
+  function calcZeroPercent() {
+    const s = parseFloat(amount0.value);
+    const n = parseInt(term0.value);
+    const result = s / n;
+
+    amountLabel0.textContent = `${(s / 1000).toFixed(0)} тыс. руб.`;
+    termLabel0.textContent = `${n} мес.`;
+    payment0.textContent = formatCurrency(Math.round(result));
+  }
+
+  amount0.addEventListener('input', calcZeroPercent);
+  term0.addEventListener('input', calcZeroPercent);
+
+  // стартовое значение
+  amount0.value = 300000;
+  term0.value = 24;
+  calcZeroPercent();
 
 
 
 
 
+
+  
 
 
 
