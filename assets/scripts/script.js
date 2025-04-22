@@ -84,7 +84,74 @@ $(document).ready(function(){
   });
 });
 
+function openPopup() {
+  const popup = document.getElementById('popup');
+  popup.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
 
+function closePopup() {
+  const popup = document.getElementById('popup');
+  popup.classList.remove('active');
+  document.body.style.overflow = '';
+
+  const video = document.getElementById('video1');
+  if (video) {
+    video.pause();
+    video.currentTime = 0;
+  }
+}
+
+function openPopup1() {
+  const popup = document.getElementById('popup1');
+  popup.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closePopup1() {
+  const popup = document.getElementById('popup1');
+  popup.classList.remove('active');
+  document.body.style.overflow = '';
+
+  const video = document.getElementById('video2');
+  if (video) {
+    video.pause();
+    video.currentTime = 0;
+  }
+}
+
+function openPopup2() {
+  const popup = document.getElementById('popup2');
+  popup.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closePopup2() {
+  const popup = document.getElementById('popup2');
+  popup.classList.remove('active');
+  document.body.style.overflow = '';
+
+  const video = document.getElementById('video3');
+  if (video) {
+    video.pause();
+    video.currentTime = 0;
+  }
+}
+
+$(document).ready(function () {
+  const isMobile = window.innerWidth <= 1199;
+
+  if (isMobile && !$('.video_cases').hasClass('slick-initialized')) {
+    $('.video_cases').slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      arrows: false,
+      centerMode: true,
+      dots: true,
+      infinite:false,
+    });
+  }
+});
 
 
 
@@ -116,17 +183,6 @@ $(document).ready(function(){
   });
 });
 
-$(document).ready(function(){
-  $('.benefit_slider_mob').slick({
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    arrows: true,
-    dots: true,
-    loop: true,
-    prevArrow: $('.benefit_arrow_prev_mob'),
-    nextArrow: $('.benefit_arrow_next_mob')
-  });
-});
 
 
 
