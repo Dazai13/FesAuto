@@ -111,13 +111,22 @@ $(document).ready(function(){
     arrows: true,
     dots: true,
     loop: true,
-    infinite: true,
-    prevArrow: $('.'),
-    nextArrow: $('.'),
+    prevArrow: $('.benefit_arrow_prev'),
+    nextArrow: $('.benefit_arrow_next')
   });
 });
 
-
+$(document).ready(function(){
+  $('.benefit_slider_mob').slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: true,
+    dots: true,
+    loop: true,
+    prevArrow: $('.benefit_arrow_prev_mob'),
+    nextArrow: $('.benefit_arrow_next_mob')
+  });
+});
 
 
 
