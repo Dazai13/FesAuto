@@ -152,11 +152,6 @@ $(document).ready(function () {
     });
   }
 });
-
-
-
-
-
 $(document).ready(function () {
   if (!$('.process_slides_mob').hasClass('slick-initialized')) {
     $('.process_slides_mob').slick({
@@ -168,6 +163,23 @@ $(document).ready(function () {
     });
   }
 });
+$(document).ready(function () {
+  if (!$('.about_slider').hasClass('slick-initialized')) {
+    $('.about_slider').slick({
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      arrows: true,
+      dots: false,
+      infinite: true,
+      centerMode:true,
+      nextArrow:$('.about_arrow_next'),
+      prevArrow:$('.about_arrow_prev')
+    });
+  }
+});
+
+
+
 
 
 
