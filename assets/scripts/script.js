@@ -178,7 +178,22 @@ $(document).ready(function () {
   }
 });
 
+$(document).ready(function () {
+  const isMobile = window.innerWidth <= 1199;
 
+  if (isMobile && !$('.reviews_slides').hasClass('slick-initialized')) {
+    $('.reviews_slides').slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      arrows: false,
+      centerMode: true,
+      centerPadding:'9px',
+      dots: true,
+      infinite:false,
+      variableWidth: true,
+    });
+  }
+});
 
 
 
@@ -241,75 +256,62 @@ for (let i = 0; i < acc.length; i++) {
 
 
 
-  const amountInput = document.getElementById('amountRange');
-  const termInput = document.getElementById('termRange');
-  const amountDisplay = document.querySelectorAll('.range-label')[0];
-  const termDisplay = document.querySelectorAll('.range-label')[1];
-  const monthlyAmount = document.querySelector('.amount');
+function formatCurrency(value) {
+  return value.toLocaleString('ru-RU') + ' руб.';
+}
 
-  const interestRate = 9.9; // ставка по умолчанию
-
-  function formatCurrency(value) {
-    return value.toLocaleString('ru-RU') + ' руб.';
+function formatAmountLabel(value) {
+  if (value >= 1_000_000) {
+    return `${(value / 1_000_000).toFixed(1)} млн руб.`;
+  } else {
+    return `${(value / 1000).toFixed(0)} тыс. руб.`;
   }
+}
 
-  function calculatePayment() {
-    const S = parseFloat(amountInput.value);        // сумма кредита
-    const n = parseInt(termInput.value);            // срок в месяцах
-    const r = (interestRate / 100) / 12;            // месячная процентная ставка
+// --- Первая часть с процентной ставкой ---
+const amountInput = document.getElementById('amountRange');
+const termInput = document.getElementById('termRange');
+const amountDisplay = document.querySelectorAll('.range-label')[0];
+const termDisplay = document.querySelectorAll('.range-label')[1];
+const monthlyAmount = document.querySelector('.amount');
 
-    const monthly =
-      S * (r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
+const interestRate = 9.9;
 
-    monthlyAmount.textContent = formatCurrency(Math.round(monthly));
-    amountDisplay.textContent = `${(S / 1000).toFixed(0)} тыс. руб.`;
-    termDisplay.textContent = `${n} мес.`;
-  }
+function calculatePayment() {
+  const S = parseFloat(amountInput.value);
+  const n = parseInt(termInput.value);
+  const r = (interestRate / 100) / 12;
 
-  amountInput.addEventListener('input', calculatePayment);
-  termInput.addEventListener('input', calculatePayment);
+  const monthly = S * (r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
 
-  // Первичный расчёт при загрузке страницы
-  calculatePayment();
+  monthlyAmount.textContent = formatCurrency(Math.round(monthly));
+  amountDisplay.textContent = formatAmountLabel(S);
+  termDisplay.textContent = `${n} мес.`;
+}
 
-  const amount0 = document.getElementById('amountRange0');
-  const term0 = document.getElementById('termRange0');
-  const amountLabel0 = document.getElementById('amountLabel0');
-  const termLabel0 = document.getElementById('termLabel0');
-  const payment0 = document.getElementById('payment0');
+amountInput.addEventListener('input', calculatePayment);
+termInput.addEventListener('input', calculatePayment);
+calculatePayment();
 
-  function formatCurrency(val) {
-    return val.toLocaleString('ru-RU') + ' руб.';
-  }
+// --- Вторая часть с 0% ---
+const amount0 = document.getElementById('amountRange0');
+const term0 = document.getElementById('termRange0');
+const amountLabel0 = document.getElementById('amountLabel0');
+const termLabel0 = document.getElementById('termLabel0');
+const payment0 = document.getElementById('payment0');
 
-  function calcZeroPercent() {
-    const s = parseFloat(amount0.value);
-    const n = parseInt(term0.value);
-    const result = s / n;
+function calcZeroPercent() {
+  const s = parseFloat(amount0.value);
+  const n = parseInt(term0.value);
+  const result = s / n;
 
-    amountLabel0.textContent = `${(s / 1000).toFixed(0)} тыс. руб.`;
-    termLabel0.textContent = `${n} мес.`;
-    payment0.textContent = formatCurrency(Math.round(result));
-  }
+  amountLabel0.textContent = formatAmountLabel(s);
+  termLabel0.textContent = `${n} мес.`;
+  payment0.textContent = formatCurrency(Math.round(result));
+}
 
-  amount0.addEventListener('input', calcZeroPercent);
-  term0.addEventListener('input', calcZeroPercent);
-
-  // стартовое значение
-  amount0.value = 300000;
-  term0.value = 24;
-  calcZeroPercent();
-
-
-
-
-
-
-  
-
-
-
-
-
-
-  
+amount0.addEventListener('input', calcZeroPercent);
+term0.addEventListener('input', calcZeroPercent);
+amount0.value = 300000;
+term0.value = 24;
+calcZeroPercent();
