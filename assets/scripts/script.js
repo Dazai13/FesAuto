@@ -221,7 +221,7 @@ $(document).ready(function() {
       slidesToShow: 1,
       slidesToScroll: 1,
       arrows: true,
-      dots: true,
+      dots: false,
       loop: true,
       prevArrow: $('.benefit_arrow_prev_mob'),
       nextArrow: $('.benefit_arrow_next_mob')
@@ -229,7 +229,34 @@ $(document).ready(function() {
 });
 
 
-
+function toggleBenefit(button) {
+  const block = button.closest('.benefit_block');
+  const content = block.querySelector('.benefit_hidden_content');
+  const mobileBtn = block.querySelector('.benefit_btn_mob');
+  const isExpanded = button.getAttribute('aria-expanded') === 'true';
+  
+  // Переключаем состояние
+  button.setAttribute('aria-expanded', !isExpanded);
+  content.hidden = isExpanded;
+  
+  // Управляем видимостью кнопки "Подобрать автомобиль"
+  mobileBtn.style.display = isExpanded ? 'block' : 'none';
+  
+  // Плавная анимация
+  if (!isExpanded) {
+    content.style.display = 'block';
+    const height = content.scrollHeight;
+    content.style.height = '0';
+    setTimeout(() => {
+      content.style.height = `${height}px`;
+    }, 10);
+  } else {
+    content.style.height = '0';
+    content.addEventListener('transitionend', () => {
+      content.style.display = 'none';
+    }, { once: true });
+  }
+}
 
 document.addEventListener("DOMContentLoaded", (function() {
     document.querySelectorAll(".scroll-link").forEach((t => {
