@@ -457,4 +457,97 @@ document.addEventListener('click', function(e) {
         collapseAllBenefits();
     }
 });
+// Lazy Load для всех изображений на странице (автономная версия)
+document.addEventListener('DOMContentLoaded', function() {
+  // 1. Находим все изображения на странице
+  const allImages = document.querySelectorAll('img');
+  
+  // 2. Создаем Intersection Observer если поддерживается
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          loadImage(img);
+          observer.unobserve(img);
+        }
+      });
+    }, {
+      rootMargin: '300px 0px', // Начинаем загружать за 300px до появления
+      threshold: 0.01
+    });
+
+    // 3. Наблюдаем за всеми изображениями
+    allImages.forEach(img => {
+      // Пропускаем изображения без src или уже загруженные
+      if (!img.src || img.complete) return;
+      
+      // Сохраняем оригинальный src в data-атрибут
+      if (!img.dataset.originalSrc) {
+        img.dataset.originalSrc = img.src;
+        img.src = ''; // Очищаем src
+      }
+      
+      observer.observe(img);
+      
+      // Добавляем стили для плавного появления
+      img.style.opacity = '0';
+      img.style.transition = 'opacity 0.5s ease';
+    });
+  } 
+  // 4. Фолбэк для старых браузеров - загружаем все сразу
+  else {
+    allImages.forEach(img => {
+      if (img.dataset.originalSrc) {
+        img.src = img.dataset.originalSrc;
+      }
+    });
+  }
+
+  // 5. Функция загрузки изображения
+  function loadImage(img) {
+    if (img.dataset.originalSrc && !img.src) {
+      img.src = img.dataset.originalSrc;
+      
+      img.onload = function() {
+        // Плавное появление
+        img.style.opacity = '1';
+        
+        // Удаляем стили после анимации
+        setTimeout(() => {
+          img.style.opacity = '';
+          img.style.transition = '';
+        }, 500);
+      };
+    }
+  }
+
+  // 6. Обработка динамически добавленных изображений
+  if (typeof MutationObserver !== 'undefined') {
+    const mutationObserver = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        mutation.addedNodes.forEach((node) => {
+          if (node.nodeName === 'IMG') {
+            if (!node.src && !node.dataset.originalSrc && node.src) {
+              node.dataset.originalSrc = node.src;
+              node.src = '';
+            }
+          } else if (node.querySelectorAll) {
+            node.querySelectorAll('img').forEach(img => {
+              if (!img.src && !img.dataset.originalSrc && img.src) {
+                img.dataset.originalSrc = img.src;
+                img.src = '';
+              }
+            });
+          }
+        });
+      });
+    });
+
+    mutationObserver.observe(document.body, {
+      childList: true,
+      subtree: true
+    });
+  }
+});
 });
