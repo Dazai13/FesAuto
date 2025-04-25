@@ -1,370 +1,470 @@
-const steps = document.querySelectorAll('.quiz-step');
-const nextBtn = document.getElementById('nextBtn');
-const prevBtn = document.getElementById('prevBtn');
-const progress = document.querySelector('.progress');
-const quiznavtext = document.querySelector('.quiz-text');
-const questionCount = document.getElementById('questionCount');
-
-let currentStep = 0;
-
-function showStep(index) {
-    steps.forEach((step, i) => {
-        step.classList.toggle('active', i === index);
-    });
-
-    progress.style.width = `${((index + 1) / steps.length) * 100}%`;
-    questionCount.textContent = `${index + 1} вопрос из ${steps.length}`;
-
-    prevBtn.disabled = index === 0;
-
-    const inputs = steps[index].querySelectorAll('input');
-    const isAnswered = Array.from(inputs).some(input => input.checked);
-    nextBtn.disabled = !isAnswered;
-
-    nextBtn.style.display = index === steps.length - 1 ? 'none' : 'inline-block';
-    quiznavtext.style.display = index === steps.length - 1 ? 'none' : 'flex'
-
-    inputs.forEach(input => {
-        input.addEventListener('change', () => {
-            nextBtn.disabled = false;
-            warning.style.display = 'none';
-        });
-    });
-}
-
-nextBtn.addEventListener('click', () => {
-    const selected = steps[currentStep].querySelector('input:checked');
-    if (!selected) {
-        warning.style.display = 'block';
-        return;
-    }
-
-    console.log(`Ответ на ${currentStep + 1}: ${selected.value}`);
-
-
-    currentStep++;
-    if (currentStep < steps.length) {
-        showStep(currentStep);
-    } else {
-        document.querySelector('.quiz-right').innerHTML = `
-      <h2>Спасибо за прохождение теста!</h2>
-      <p>Мы свяжемся с вами для подбора автомобиля.</p>
-    `;
-    }
-});
-
-prevBtn.addEventListener('click', () => {
-    if (currentStep > 0) {
-        currentStep--;
-        showStep(currentStep);
-    }
-});
-
-showStep(currentStep);
-$(document).ready(function() {
-    $('.car_list_slider').slick({
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        centerMode: true,
-        centerPadding: '40px',
-        infinite: true,
-        arrows: true,
-        prevArrow: $('.car_list_slider_button_prev'),
-        nextArrow: $('.car_list_slider_button_next'),
-        responsive: [{
-            breakpoint: 1199,
-            settings: {
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                arrows: true,
-            }
-        }]
-    });
-});
-
-function openPopup() {
-    const popup = document.getElementById('popup');
-    popup.classList.add('active');
-    document.body.style.overflow = 'hidden';
-}
-
-function closePopup() {
-    const popup = document.getElementById('popup');
-    popup.classList.remove('active');
-    document.body.style.overflow = '';
-
-    const video = document.getElementById('video1');
-    if (video) {
-        video.pause();
-        video.currentTime = 0;
-    }
-}
-
-function openPopup1() {
-    const popup = document.getElementById('popup1');
-    popup.classList.add('active');
-    document.body.style.overflow = 'hidden';
-}
-
-function closePopup1() {
-    const popup = document.getElementById('popup1');
-    popup.classList.remove('active');
-    document.body.style.overflow = '';
-
-    const video = document.getElementById('video2');
-    if (video) {
-        video.pause();
-        video.currentTime = 0;
-    }
-}
-
-function openPopup2() {
-    const popup = document.getElementById('popup2');
-    popup.classList.add('active');
-    document.body.style.overflow = 'hidden';
-}
-
-function closePopup2() {
-    const popup = document.getElementById('popup2');
-    popup.classList.remove('active');
-    document.body.style.overflow = '';
-
-    const video = document.getElementById('video3');
-    if (video) {
-        video.pause();
-        video.currentTime = 0;
-    }
-}
-
-$(document).ready(function() {
-    const isMobile = window.innerWidth <= 1199;
-
-    if (isMobile && !$('.video_cases').hasClass('slick-initialized')) {
-        $('.video_cases').slick({
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            arrows: false,
-            centerMode: true,
-            dots: true,
-            infinite: false,
-        });
-    }
-});
-$(document).ready(function() {
-    if (!$('.process_slides_mob').hasClass('slick-initialized')) {
-        $('.process_slides_mob').slick({
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            arrows: false,
-            dots: true,
-            infinite: true,
-        });
-    }
-});
-$(document).ready(function() {
-    if (!$('.about_slider').hasClass('slick-initialized')) {
-        $('.about_slider').slick({
-            slidesToShow: 3,
-            slidesToScroll: 1,
-            arrows: true,
-            dots: false,
-            infinite: true,
-            centerMode: true,
-            nextArrow: $('.about_arrow_next'),
-            prevArrow: $('.about_arrow_prev'),
-            responsive: [{
-                breakpoint: 1199,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                    arrows: false,
-                    dots: true,
-                }
-            }]
-        });
-    }
-});
-
-$(document).ready(function() {
-    const isMobile = window.innerWidth <= 1199;
-
-    if (isMobile && !$('.reviews_slides').hasClass('slick-initialized')) {
-        $('.reviews_slides').slick({
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            arrows: false,
-            centerMode: true,
-            centerPadding: '9px',
-            dots: true,
-            infinite: false,
-            variableWidth: true,
-        });
-    }
-});
-
-
-
-
-$(document).ready(function() {
-    $('.benefit_slider').slick({
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        arrows: true,
-        dots: true,
-        loop: true,
-        prevArrow: $('.benefit_arrow_prev'),
-        nextArrow: $('.benefit_arrow_next')
-    });
-});
-$(document).ready(function() {
-  $('.benefit_slider_mob').slick({
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      arrows: true,
-      dots: false,
-      loop: true,
-      prevArrow: $('.benefit_arrow_prev_mob'),
-      nextArrow: $('.benefit_arrow_next_mob')
-  });
-});
-
-
-function toggleBenefit(button) {
-  const block = button.closest('.benefit_block');
-  const content = block.querySelector('.benefit_hidden_content');
-  const mobileBtn = block.querySelector('.benefit_btn_mob');
-  const isExpanded = button.getAttribute('aria-expanded') === 'true';
-  
-  // Переключаем состояние
-  button.setAttribute('aria-expanded', !isExpanded);
-  content.hidden = isExpanded;
-  
-  // Управляем видимостью кнопки "Подобрать автомобиль"
-  mobileBtn.style.display = isExpanded ? 'block' : 'none';
-  
-  // Плавная анимация
-  if (!isExpanded) {
-    content.style.display = 'block';
-    const height = content.scrollHeight;
-    content.style.height = '0';
-    setTimeout(() => {
-      content.style.height = `${height}px`;
-    }, 10);
-  } else {
-    content.style.height = '0';
-    content.addEventListener('transitionend', () => {
-      content.style.display = 'none';
-    }, { once: true });
+document.addEventListener("DOMContentLoaded", function() {
+  // Проверка подключения jQuery и Slick Slider
+  if (typeof jQuery === 'undefined' || typeof jQuery.fn.slick === 'undefined') {
+    console.error('Ошибка: jQuery или Slick Slider не подключены!');
+    return;
   }
-}
 
-document.addEventListener("DOMContentLoaded", (function() {
-    document.querySelectorAll(".scroll-link").forEach((t => {
-        t.addEventListener("click", (function(t) {
-            t.preventDefault();
-            const e = this.dataset.target,
-                n = document.getElementById(e);
-            if (n) {
-                n.scrollIntoView({
-                    behavior: "smooth",
-                    block: "start"
-                }), history.pushState ? history.pushState(null, null, window.location.pathname) : window.location.hash = "";
-                const t = document.querySelector(".mobile-menu");
-                t && t.classList.contains("active") && t.classList.remove("active")
-            }
-        }))
-    }));
-    const t = document.getElementById("menu-toggle"),
-        e = document.querySelector(".mobile-menu");
-    t && e && t.addEventListener("click", (function() {
-        e.classList.toggle("active")
-    }))
-}));
+  // Общие переменные
+  const $ = jQuery;
+  const warning = document.getElementById('warning');
+  const mobileMenu = document.querySelector('.mobile-menu');
+  const menuToggle = document.getElementById('menu-toggle');
 
-var acc = document.getElementsByClassName("accordion");
-var i;
+  // Инициализация всех компонентов
+  initQuiz();
+  initSliders();
+  initPopups();
+  initAccordions();
+  initScrollLinks();
+  initMobileMenu();
+  initCalculators();
 
-for (let i = 0; i < acc.length; i++) {
-    acc[i].addEventListener("click", function() {
-        // Закрываем все, кроме текущего
-        for (let j = 0; j < acc.length; j++) {
-            if (acc[j] !== this) {
-                acc[j].classList.remove("active");
-                acc[j].nextElementSibling.style.maxHeight = null;
-            }
+  // 1. Квиз-система
+  function initQuiz() {
+    const steps = document.querySelectorAll('.quiz-step');
+    if (!steps.length) return;
+
+    const nextBtn = document.getElementById('nextBtn');
+    const prevBtn = document.getElementById('prevBtn');
+    const progress = document.querySelector('.progress');
+    const quiznavtext = document.querySelector('.quiz-text');
+    const questionCount = document.getElementById('questionCount');
+    let currentStep = 0;
+
+    function showStep(index) {
+      steps.forEach((step, i) => {
+        step.classList.toggle('active', i === index);
+      });
+
+      if (progress) progress.style.width = `${((index + 1) / steps.length) * 100}%`;
+      if (questionCount) questionCount.textContent = `${index + 1} вопрос из ${steps.length}`;
+      if (prevBtn) prevBtn.disabled = index === 0;
+
+      const inputs = steps[index].querySelectorAll('input');
+      const isAnswered = Array.from(inputs).some(input => input.checked);
+      if (nextBtn) nextBtn.disabled = !isAnswered;
+
+      if (nextBtn) nextBtn.style.display = index === steps.length - 1 ? 'none' : 'inline-block';
+      if (quiznavtext) quiznavtext.style.display = index === steps.length - 1 ? 'none' : 'flex';
+
+      inputs.forEach(input => {
+        input.addEventListener('change', () => {
+          if (nextBtn) nextBtn.disabled = false;
+          if (warning) warning.style.display = 'none';
+        });
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        const selected = steps[currentStep].querySelector('input:checked');
+        if (!selected) {
+          if (warning) warning.style.display = 'block';
+          return;
         }
+
+        console.log(`Ответ на ${currentStep + 1}: ${selected.value}`);
+
+        currentStep++;
+        if (currentStep < steps.length) {
+          showStep(currentStep);
+        } else {
+          const quizRight = document.querySelector('.quiz-right');
+          if (quizRight) {
+            quizRight.innerHTML = `
+              <h2>Спасибо за прохождение теста!</h2>
+              <p>Мы свяжемся с вами для подбора автомобиля.</p>
+            `;
+          }
+        }
+      });
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => {
+        if (currentStep > 0) {
+          currentStep--;
+          showStep(currentStep);
+        }
+      });
+    }
+
+    showStep(currentStep);
+  }
+
+  // 2. Адаптивные слайдеры
+  function initSliders() {
+    const sliders = {
+      '.car_list_slider': {
+        desktop: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          centerMode: true,
+          centerPadding: '40px',
+          infinite: true,
+          arrows: true,
+          prevArrow: $('.car_list_slider_button_prev'),
+          nextArrow: $('.car_list_slider_button_next')
+        },
+        mobile: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          arrows: true
+        }
+      },
+      '.video_cases': {
+        mobile: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          arrows: false,
+          centerMode: true,
+          dots: true,
+          infinite: false
+        }
+      },
+      '.process_slides_mob': {
+        mobile: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          arrows: false,
+          dots: true,
+          infinite: true
+        }
+      },
+      '.about_slider': {
+        desktop: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          arrows: true,
+          dots: false,
+          infinite: true,
+          centerMode: true,
+          nextArrow: $('.about_arrow_next'),
+          prevArrow: $('.about_arrow_prev')
+        },
+        mobile: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          arrows: false,
+          dots: true
+        }
+      },
+      '.reviews_slides': {
+        mobile: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          arrows: false,
+          centerMode: true,
+          centerPadding: '9px',
+          dots: true,
+          infinite: false,
+          variableWidth: true
+        }
+      },
+      '.benefit_slider': {
+        desktop: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          arrows: true,
+          dots: true,
+          loop: true,
+          prevArrow: $('.benefit_arrow_prev'),
+          nextArrow: $('.benefit_arrow_next')
+        }
+      },
+      '.benefit_slider_mob': {
+        mobile: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          arrows: true,
+          dots: false,
+          padding:"10px",
+          prevArrow: $('.benefit_arrow_prev_mob'),
+          nextArrow: $('.benefit_arrow_next_mob')
+        }
+      }
+    };
+
+    function handleSliders() {
+      const isMobile = window.innerWidth <= 1199;
+
+      Object.entries(sliders).forEach(([selector, config]) => {
+        const $slider = $(selector);
+        if (!$slider.length) return;
+
+        const settings = isMobile ? config.mobile : config.desktop;
+
+        if (settings) {
+          if (!$slider.hasClass('slick-initialized')) {
+            $slider.slick(settings);
+          }
+        } else {
+          if ($slider.hasClass('slick-initialized')) {
+            $slider.slick('unslick');
+          }
+        }
+      });
+    }
+
+    // Дебаунс для ресайза
+    let resizeTimer;
+    window.addEventListener('resize', function() {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(handleSliders, 250);
+    });
+
+    handleSliders();
+  }
+
+  // 3. Попапы
+  function initPopups() {
+    const popups = [
+      { id: 'popup', videoId: 'video1' },
+      { id: 'popup1', videoId: 'video2' },
+      { id: 'popup2', videoId: 'video3' }
+    ];
+
+    popups.forEach(popup => {
+      const openBtn = document.querySelector(`[onclick*="openPopup${popup.id === 'popup' ? '' : popup.id.slice(-1)}"]`);
+      if (openBtn) {
+        openBtn.onclick = () => {
+          const popupElement = document.getElementById(popup.id);
+          if (popupElement) popupElement.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        };
+      }
+
+      const closeBtn = document.querySelector(`[onclick*="closePopup${popup.id === 'popup' ? '' : popup.id.slice(-1)}"]`);
+      if (closeBtn) {
+        closeBtn.onclick = () => {
+          const popupElement = document.getElementById(popup.id);
+          if (popupElement) popupElement.classList.remove('active');
+          document.body.style.overflow = '';
+          
+          const video = document.getElementById(popup.videoId);
+          if (video) {
+            video.pause();
+            video.currentTime = 0;
+          }
+        };
+      }
+    });
+  }
+
+  // 4. Аккордеоны
+  function initAccordions() {
+    document.querySelectorAll('.accordion').forEach(acc => {
+      acc.addEventListener('click', function() {
+        // Закрываем все, кроме текущего
+        document.querySelectorAll('.accordion').forEach(item => {
+          if (item !== this) {
+            item.classList.remove('active');
+            const panel = item.nextElementSibling;
+            if (panel) panel.style.maxHeight = null;
+          }
+        });
 
         // Переключаем текущий
-        this.classList.toggle("active");
-        var panel = this.nextElementSibling;
+        this.classList.toggle('active');
+        const panel = this.nextElementSibling;
+        if (!panel) return;
 
         if (panel.style.maxHeight) {
-            panel.style.maxHeight = null;
+          panel.style.maxHeight = null;
         } else {
-            panel.style.maxHeight = panel.scrollHeight + "px";
+          panel.style.maxHeight = panel.scrollHeight + 'px';
+        }
+      });
+    });
+  }
+
+  // 5. Плавные скроллы
+  function initScrollLinks() {
+    document.querySelectorAll('.scroll-link').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = this.dataset.target;
+        if (!target) return;
+
+        const element = document.getElementById(target);
+        if (!element) return;
+
+        element.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+        
+        if (history.pushState) {
+          history.pushState(null, null, window.location.pathname);
+        } else {
+          window.location.hash = '';
+        }
+        
+        if (mobileMenu && mobileMenu.classList.contains('active')) {
+          mobileMenu.classList.remove('active');
+        }
+      });
+    });
+  }
+
+  // 6. Мобильное меню
+  function initMobileMenu() {
+    if (menuToggle && mobileMenu) {
+      menuToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('active');
+      });
+    }
+  }
+
+  // 7. Калькуляторы
+  function initCalculators() {
+    // Форматирование чисел
+    function formatCurrency(value) {
+      return value.toLocaleString('ru-RU') + ' руб.';
+    }
+
+    function formatAmountLabel(value) {
+      if (value >= 1_000_000) {
+        return `${(value / 1_000_000).toFixed(1)} млн руб.`;
+      } else {
+        return `${(value / 1000).toFixed(0)} тыс. руб.`;
+      }
+    }
+
+    // Калькулятор с процентной ставкой
+    const amountInput = document.getElementById('amountRange');
+    const termInput = document.getElementById('termRange');
+    const amountDisplay = document.querySelectorAll('.range-label')[0];
+    const termDisplay = document.querySelectorAll('.range-label')[1];
+    const monthlyAmount = document.querySelector('.amount');
+
+    if (amountInput && termInput && amountDisplay && termDisplay && monthlyAmount) {
+      const interestRate = 9.9;
+
+      function calculatePayment() {
+        const S = parseFloat(amountInput.value) || 0;
+        const n = parseInt(termInput.value) || 1;
+        const r = (interestRate / 100) / 12;
+
+        const monthly = S * (r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
+
+        monthlyAmount.textContent = formatCurrency(Math.round(monthly));
+        amountDisplay.textContent = formatAmountLabel(S);
+        termDisplay.textContent = `${n} мес.`;
+      }
+
+      amountInput.addEventListener('input', calculatePayment);
+      termInput.addEventListener('input', calculatePayment);
+      calculatePayment();
+    }
+
+    // Калькулятор с 0%
+    const amount0 = document.getElementById('amountRange0');
+    const term0 = document.getElementById('termRange0');
+    const amountLabel0 = document.getElementById('amountLabel0');
+    const termLabel0 = document.getElementById('termLabel0');
+    const payment0 = document.getElementById('payment0');
+
+    if (amount0 && term0 && amountLabel0 && termLabel0 && payment0) {
+      function calcZeroPercent() {
+        const s = parseFloat(amount0.value) || 0;
+        const n = parseInt(term0.value) || 1;
+        const result = s / n;
+
+        amountLabel0.textContent = formatAmountLabel(s);
+        termLabel0.textContent = `${n} мес.`;
+        payment0.textContent = formatCurrency(Math.round(result));
+      }
+
+      amount0.addEventListener('input', calcZeroPercent);
+      term0.addEventListener('input', calcZeroPercent);
+      amount0.value = 300000;
+      term0.value = 24;
+      calcZeroPercent();
+    }
+  }
+
+  // 8. Toggle для блока с преимуществами
+  window.toggleBenefit = function(button) {
+    if (!button) return;
+    
+    const block = button.closest('.benefit_block');
+    if (!block) return;
+
+    const content = block.querySelector('.benefit_hidden_content');
+    const mobileBtn = block.querySelector('.benefit_btn_mob');
+    const isExpanded = button.getAttribute('aria-expanded') === 'true';
+    
+    // Закрываем все другие открытые блоки
+    if (!isExpanded) {
+        document.querySelectorAll('.benefit_block').forEach(otherBlock => {
+            if (otherBlock !== block) {
+                const otherButton = otherBlock.querySelector('[aria-expanded="true"]');
+                if (otherButton) {
+                    const otherContent = otherBlock.querySelector('.benefit_hidden_content');
+                    const otherMobileBtn = otherBlock.querySelector('.benefit_btn_mob');
+                    
+                    otherButton.setAttribute('aria-expanded', 'false');
+                    if (otherContent) {
+                        otherContent.style.height = '0';
+                        otherContent.addEventListener('transitionend', () => {
+                            otherContent.style.display = 'none';
+                            otherContent.style.height = '';
+                        }, { once: true });
+                    }
+                    if (otherMobileBtn) otherMobileBtn.style.display = 'block';
+                }
+            }
+        });
+    }
+    
+    button.setAttribute('aria-expanded', !isExpanded);
+    if (content) content.hidden = isExpanded;
+    if (mobileBtn) mobileBtn.style.display = isExpanded ? 'block' : 'none';
+    
+    if (!isExpanded && content) {
+        content.style.display = 'block';
+        const height = content.scrollHeight;
+        content.style.height = '0';
+        setTimeout(() => {
+            content.style.height = `${height}px`;
+        }, 10);
+    } else if (content) {
+        content.style.height = '0';
+        content.addEventListener('transitionend', () => {
+            content.style.display = 'none';
+            content.style.height = '';
+        }, { once: true });
+    }
+};
+
+// Функция для закрытия всех блоков
+function collapseAllBenefits() {
+    document.querySelectorAll('.benefit_block').forEach(block => {
+        const button = block.querySelector('[aria-expanded="true"]');
+        if (button) {
+            const content = block.querySelector('.benefit_hidden_content');
+            const mobileBtn = block.querySelector('.benefit_btn_mob');
+            
+            button.setAttribute('aria-expanded', 'false');
+            if (content) {
+                content.style.height = '0';
+                content.addEventListener('transitionend', () => {
+                    content.style.display = 'none';
+                    content.style.height = '';
+                }, { once: true });
+            }
+            if (mobileBtn) mobileBtn.style.display = 'block';
         }
     });
 }
 
-
-
-
-function formatCurrency(value) {
-    return value.toLocaleString('ru-RU') + ' руб.';
-}
-
-function formatAmountLabel(value) {
-    if (value >= 1_000_000) {
-        return `${(value / 1_000_000).toFixed(1)} млн руб.`;
-    } else {
-        return `${(value / 1000).toFixed(0)} тыс. руб.`;
+// Обработчики для стрелок
+document.addEventListener('click', function(e) {
+    if (e.target.closest('.benefit_arrow_prev_mob') || 
+        e.target.closest('.benefit_arrow_next_mob')) {
+        collapseAllBenefits();
     }
-}
-
-// --- Первая часть с процентной ставкой ---
-const amountInput = document.getElementById('amountRange');
-const termInput = document.getElementById('termRange');
-const amountDisplay = document.querySelectorAll('.range-label')[0];
-const termDisplay = document.querySelectorAll('.range-label')[1];
-const monthlyAmount = document.querySelector('.amount');
-
-const interestRate = 9.9;
-
-function calculatePayment() {
-    const S = parseFloat(amountInput.value);
-    const n = parseInt(termInput.value);
-    const r = (interestRate / 100) / 12;
-
-    const monthly = S * (r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
-
-    monthlyAmount.textContent = formatCurrency(Math.round(monthly));
-    amountDisplay.textContent = formatAmountLabel(S);
-    termDisplay.textContent = `${n} мес.`;
-}
-
-amountInput.addEventListener('input', calculatePayment);
-termInput.addEventListener('input', calculatePayment);
-calculatePayment();
-
-// --- Вторая часть с 0% ---
-const amount0 = document.getElementById('amountRange0');
-const term0 = document.getElementById('termRange0');
-const amountLabel0 = document.getElementById('amountLabel0');
-const termLabel0 = document.getElementById('termLabel0');
-const payment0 = document.getElementById('payment0');
-
-function calcZeroPercent() {
-    const s = parseFloat(amount0.value);
-    const n = parseInt(term0.value);
-    const result = s / n;
-
-    amountLabel0.textContent = formatAmountLabel(s);
-    termLabel0.textContent = `${n} мес.`;
-    payment0.textContent = formatCurrency(Math.round(result));
-}
-
-amount0.addEventListener('input', calcZeroPercent);
-term0.addEventListener('input', calcZeroPercent);
-amount0.value = 300000;
-term0.value = 24;
-calcZeroPercent();
+});
+});

@@ -3341,6 +3341,7 @@ font-weight: 500;
 font-size: 16px;
 line-height: 22px;
 margin-top: 5px;
+width: 442px;
 }
 .btn_benefit {
 width: 348px;
@@ -3643,11 +3644,26 @@ font-weight: 700;
 .tab_slide:checked + .tab-content {
 display: -webkit-box;
 display: -ms-flexbox;
-display: flex;
+display: flex !important;
+}
+.benefit_arrow_prev_mob ,.benefit_arrow_next_mob {
+    width: 48px;
+    height: 48px;
+    border:2px solid var(--red);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.benefit_arrow_prev_mob{
+    rotate: 180deg;
 }
 .request_checbox_text {
 font-size: 12px;
 width: 254px;
+}
+.benefit_arrows_mob{
+    gap:20px;
 }
 .request_checbox {
 min-width: 16px !important;
@@ -3735,7 +3751,7 @@ width: 235px;
 text-align: center;
 }
 .quiz_line {
-margin: 20px 20px 40px;
+margin: 20px 20px 25px;
 }
 .btn_slider,
 .car_slide_footer_price,
@@ -5131,6 +5147,9 @@ border-radius: 20px 20px 0 0;
 margin: 10px 20px 0;
 padding-bottom: 20px;
 height: auto;
+display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .benefit_info {
 display: -webkit-box;
@@ -5154,6 +5173,7 @@ animation: 0.3s fadeIn;
 -webkit-transition: 0.3s;
 -o-transition: 0.3s;
 transition: 0.3s;
+max-width: 280px;
 overflow: hidden;
 }
 @-webkit-keyframes fadeIn {
@@ -5192,7 +5212,7 @@ display: -ms-flexbox;
 -webkit-box-orient: horizontal;
 }
 .benefit_slide_mob {
-width: 320px !important;
+width: 100vw !important;
 border-radius: 20px !important;
 height: 347px;
 }
@@ -5206,6 +5226,7 @@ justify-content: space-between;
 -webkit-box-align: center;
 -ms-flex-align: center;
 align-items: center;
+width: 280px;
 }
 .benefit_content_title {
 font-size: 16px;
@@ -5366,7 +5387,15 @@ padding: 10px 40px;
 a{
     cursor: pointer;
 }
-.home,.quiz{
-    position: relative;
-    z-index: -1;
+@media screen and (max-width:1199px) {
+    .home,.quiz{
+        position: relative;
+        z-index: -1;
+    }
+}
+
+.quiz_left_checks{
+    flex-direction: column-reverse;
+  gap:
+20px;
 }
