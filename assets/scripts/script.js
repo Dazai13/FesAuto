@@ -133,16 +133,6 @@ document.addEventListener("DOMContentLoaded", function() {
         }
       },
       '.about_slider': {
-        desktop: {
-          slidesToShow: 3,
-          slidesToScroll: 1,
-          arrows: true,
-          dots: false,
-          infinite: true,
-          centerMode: true,
-          nextArrow: $('.about_arrow_next'),
-          prevArrow: $('.about_arrow_prev')
-        },
         mobile: {
           slidesToShow: 1,
           slidesToScroll: 1,

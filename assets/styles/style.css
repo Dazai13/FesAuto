@@ -525,6 +525,13 @@ display: none;
 display: -webkit-box;
 display: -ms-flexbox;
 }
+.about_slider .slick-track{
+    display: flex !important;
+}
+.about_arrow_next img, .about_arrow_prev img{
+    position: relative !important;
+    right: 0 !important;
+}
 #form,
 .about_arrows,
 .about_inner,
@@ -2556,6 +2563,7 @@ font-family: Gilroy;
 font-size: 50px;
 font-weight: 700;
 line-height: 60px;
+width: 748px;
 }
 .car_slide_footer_info {
 display: -ms-grid;
@@ -4702,6 +4710,7 @@ padding: 0 10px 10px;
 font-size: 20px;
 font-weight: 700;
 line-height: 29px;
+
 }
 .footer_info {
 font-size: 12px;
