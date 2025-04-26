@@ -1,4 +1,19 @@
-#form,
+input[type="text"],
+input[type="tel"] {
+    outline: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    }
+    input[type="text"]:active,
+    input[type="text"]:focus,
+    input[type="tel"]:active,
+    input[type="tel"]:focus {
+    border-color: #ff2600;
+    outline: 0;
+    -webkit-box-shadow: 0 0 10px #ff2600;
+    box-shadow: 0 0 10px #ff2600;
+    }
+#form1,#form2,
 .contacts,
 .form_image_block,
 .form_points,
@@ -176,7 +191,7 @@ transition: background 0.4s, color 0.4s, transform 0.3s, box-shadow 0.3s,
 -webkit-transform 0.3s, -webkit-box-shadow 0.3s;
 -o-transition: background 0.4s, color 0.4s, transform 0.3s, box-shadow 0.3s;
 }
-#form,
+#form1,#form2,
 .btn:hover,
 .garant_inner,
 .header {
@@ -218,18 +233,7 @@ font-weight: 500;
 color: var(--gray);
 text-align: center;
 }
-input[type="text"] {
-outline: 0;
--webkit-box-shadow: none;
-box-shadow: none;
-}
-input[type="text"]:active,
-input[type="text"]:focus {
-border-color: #ff2600;
-outline: 0;
--webkit-box-shadow: 0 0 10px #ff2600;
-box-shadow: 0 0 10px #ff2600;
-}
+
 input[type="checkbox"] {
 -moz-appearance: none;
 appearance: none;
@@ -271,9 +275,9 @@ color: var(--red);
 -o-transition: color 0.3s;
 transition: color 0.3s;
 }
-#form,
+#form2,
 .accordion,
-.form_inner #form .inputs input,
+.form_inner #form2 .inputs input,
 .menu .nav_link {
 color: var(--black);
 }
@@ -532,7 +536,7 @@ display: -ms-flexbox;
     position: relative !important;
     right: 0 !important;
 }
-#form,
+#form1,#form2,
 .about_arrows,
 .about_inner,
 .about_slide_text,
@@ -659,7 +663,7 @@ height: 24px;
 display: block;
 }
 }
-#form,
+#form1,#form2,
 .btn_video,
 .calculator_body label:nth-child(5),
 .intro_btn,
@@ -779,7 +783,7 @@ color: var(--red);
 .quiz_check_title,
 .quiz_manager_text,
 .quiz_point_text,
-.request_form #form {
+.request_form #form1 {
 color: var(--white);
 }
 .case_subtitle {
@@ -811,7 +815,7 @@ display: flex;
 flex-direction: row;
 gap: 27px;
 }
-.request_form #form {
+.request_form #form1 {
 margin: 0;
 padding: 0;
 background: 0 0;
@@ -1469,7 +1473,7 @@ left: -50px;
 -webkit-box-orient: vertical;
 -webkit-box-direction: normal;
 }
-#form,
+#form1,#form2,
 .about_arrows .slick-arrow.slick-hidden,
 .checkbox,
 .close-btn,
@@ -2048,6 +2052,12 @@ height: 803px;
 .qa_inner {
 margin-top: 100px;
 }
+.main_form{
+    display: flex !important;
+    flex-direction: column;
+    max-width: max-content;
+    align-items: center;
+}
 .wrapper_image_qa img {
 position: absolute;
 right: 0;
@@ -2106,11 +2116,11 @@ align-items: center;
 justify-content: space-between;
 padding: 10px 0;
 }
-#form,
+#form1,#form2,
 .form_points {
 -webkit-box-orient: vertical;
 }
-#form,
+#form1,#form2,
 .calculator_body,
 .form_points,
 .process_inner,
@@ -2198,7 +2208,7 @@ align-items: center;
 gap: 10px;
 font-family: Gilroy;
 }
-#form,
+#form1,#form2,
 .process_inner {
 -ms-flex-direction: column;
 }
@@ -2211,7 +2221,7 @@ max-width: 554px;
 .form_point:nth-child(2) span {
 max-width: 367px;
 }
-#form {
+#form1,#form2 {
 width: 600px;
 height: 338px;
 border-radius: 20px;
@@ -2715,7 +2725,6 @@ gap: 4px;
 }
 .footer {
 background-color: var(--black);
-height: 511px;
 }
 .footer_inner {
 padding: 40px 0;
@@ -3593,7 +3602,7 @@ justify-content: start;
 .nav_links_mobile_ver,
 .nav_section1,
 .quiz-options-inputs,
-.request_form #form .checkbox,
+.request_form #form1 .checkbox,
 .request_image_mob,
 .tab_inner,
 .tab_slide :checked ~ .tab-content,
@@ -3643,13 +3652,13 @@ font-weight: 900;
 margin-top: 20px;
 }
 .quiz-step:nth-child(5) .quiz-question,
-.request_form #form .form_subname {
+.request_form #form1 .form_subname {
 font-weight: 700;
 }
 .benefit_arrows_mob,
 .benefit_slider_mob,
 .nav_links_mobile_ver,
-.request_form #form .checkbox,
+.request_form #form1 .checkbox,
 .tab_slide:checked + .tab-content {
 display: -webkit-box;
 display: -ms-flexbox;
@@ -4486,7 +4495,7 @@ width: 28px;
 .form_point:nth-child(2) span {
 max-width: 213px;
 }
-#form {
+#form1,#form2 {
 width: 280px;
 height: 220px;
 }
@@ -4775,9 +4784,6 @@ padding: 20px;
 }
 .map_line {
 width: 180px;
-}
-.footer {
-height: 688px;
 }
 .footer_inner {
 display: flex;

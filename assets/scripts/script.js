@@ -551,3 +551,103 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 });
+document.addEventListener('DOMContentLoaded', function() {
+  // Функция для применения маски телефона
+  function applyPhoneMask(input) {
+    input.addEventListener('input', function(e) {
+      // Сохраняем значение до форматирования
+      const previousValue = this.value;
+      const cursorPosition = this.selectionStart;
+      
+      // Удаляем все нецифровые символы
+      let numbers = this.value.replace(/\D/g, '');
+      
+      // Форматируем номер
+      let formattedValue = '';
+      if (numbers.length > 0) {
+        // Всегда начинаем с +7
+        numbers = '7' + numbers.substring(numbers.startsWith('7') ? 1 : 0);
+        formattedValue = '+7';
+        
+        if (numbers.length > 1) {
+          formattedValue += ' ' + numbers.substring(1, 4);
+        }
+        if (numbers.length > 4) {
+          formattedValue += ' ' + numbers.substring(4, 7);
+        }
+        if (numbers.length > 7) {
+          formattedValue += '-' + numbers.substring(7, 9);
+        }
+        if (numbers.length > 9) {
+          formattedValue += '-' + numbers.substring(9, 11);
+        }
+      }
+      
+      // Устанавливаем отформатированное значение
+      this.value = formattedValue;
+      
+      // Всегда перемещаем курсор в конец
+      this.setSelectionRange(formattedValue.length, formattedValue.length);
+    });
+    
+    // Обработчик для удаления символов
+    input.addEventListener('keydown', function(e) {
+      // Если нажата Backspace или Delete и курсор в начале
+      if ((e.key === 'Backspace' || e.key === 'Delete') && this.selectionStart <= 3) {
+        e.preventDefault();
+      }
+    });
+  }
+
+  // Применяем маски ко всем полям телефонов
+  const phoneInputs = document.querySelectorAll('input[type="tel"], input[placeholder*="телефона"]');
+  phoneInputs.forEach(function(input) {
+    if (input.type !== 'tel') input.type = 'tel';
+    applyPhoneMask(input);
+    
+    // Инициализируем поле с +7
+    input.value = '+7';
+  });
+
+  // Остальной код валидации форм...
+  const forms = document.querySelectorAll('form');
+  forms.forEach(function(form) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Проверка чекбокса
+      const checkbox = form.querySelector('input[type="checkbox"]');
+      if (checkbox && !checkbox.checked) {
+        alert('Пожалуйста, дайте согласие на обработку персональных данных');
+        checkbox.focus();
+        return false;
+      }
+      
+      // Проверка валидности
+      let isValid = true;
+      form.querySelectorAll('input[required]').forEach(function(input) {
+        if (!input.checkValidity()) {
+          isValid = false;
+          input.classList.add('invalid');
+        }
+      });
+      
+      if (isValid) {
+        alert('Форма успешно отправлена!');
+        form.reset();
+        // Возвращаем +7 в поле телефона после сброса
+        form.querySelector('input[type="tel"]').value = '+7';
+      }
+    });
+  });
+});
+
+// Стили для невалидных полей
+const style = document.createElement('style');
+style.textContent = `
+  input.invalid {
+    border-color: red !important;
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+  }
+`;
+document.head.appendChild(style);
