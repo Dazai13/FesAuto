@@ -26,6 +26,16 @@ input[type="tel"] {
 .result {
 -webkit-box-orient: vertical;
 }
+.video_play{
+    cursor:pointer;
+}
+.rating{
+    border:1px solid var(--red);
+    padding:10px 20px;
+    text-decoration: none;
+    color:var(--black);
+    cursor: pointer;
+}
 .about_inner,
 .about_slider,
 .about_text,
