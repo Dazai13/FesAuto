@@ -112,7 +112,9 @@ background-color: transparent;
 }
 @font-face {
 font-family: Gilroy;
-src: url('../fonts/Gilroy-Medium.ttf');
+src: url('./assets/fonts/Gilroy-Medium.ttf') format('truetype');
+/* или */
+src: url('../fonts/Gilroy-Medium.ttf') format('truetype');
 }
 * {
 -webkit-box-sizing: border-box;
