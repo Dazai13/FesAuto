@@ -2624,20 +2624,20 @@ top,
 #7e7e7e 0,
 rgba(126, 126, 126, 0) 100%
 ),
-url("/assets/images/bgshape4.png");
+url("../images/bgshape4.png");
 background-image: -webkit-gradient(
 linear,
 left top, left bottom,
 color-stop(0, #7e7e7e),
 to(rgba(126, 126, 126, 0))
 ),
-url("/assets/images/bgshape4.png");
+url("../images/bgshape4.png");
 background-image: linear-gradient(
 180deg,
 #7e7e7e 0,
 rgba(126, 126, 126, 0) 100%
 ),
-url("/assets/images/bgshape4.png");
+url("../images/bgshape4.png");
 background-repeat: no-repeat;
 background-size: cover;
 background-blend-mode: normal;
@@ -3869,7 +3869,7 @@ display: -webkit-box;
 display: -ms-flexbox;
 display: flex;
 height: 171px;
-background-image: url("/assets/images/Frame\ 145657\(1\).png");
+background-image: url("../images/Frame145657.png");
 border-top-right-radius: 16px;
 border-top-left-radius: 13px;
 }
@@ -4146,7 +4146,7 @@ top,
 rgba(255, 255, 255, 0) 68%,
 #fff 100%
 ),
-url("/assets/images/SMB034071.png");
+url("../images/SMB034071.png");
 background-image: -webkit-gradient(
 linear,
 left top, left bottom,
@@ -4154,14 +4154,14 @@ color-stop(0, #fff),
 color-stop(68%, rgba(255, 255, 255, 0)),
 to(#fff)
 ),
-url("/assets/images/SMB034071.png");
+url("../images/SMB034071.png");
 background-image: linear-gradient(
 180deg,
 #fff 0,
 rgba(255, 255, 255, 0) 68%,
 #fff 100%
 ),
-url("/assets/images/SMB034071.png");
+url("../images/SMB034071.png");
 background-position: top, bottom;
 height: 855px;
 margin-top: 40px;
@@ -4310,7 +4310,7 @@ top,
 rgba(255, 255, 255, 0) 53.15%,
 #fff 100%
 ),
-url("/assets/images/image\ 1081\(1\).png");
+url("../images/image\ 1081\(1\).png");
 background-image: -webkit-gradient(
 linear,
 left top, left bottom,
@@ -4318,14 +4318,14 @@ color-stop(0, #fff),
 color-stop(53.15%, rgba(255, 255, 255, 0)),
 to(#fff)
 ),
-url("/assets/images/image\ 1081\(1\).png");
+url("../images/image\ 1081\(1\).png");
 background-image: linear-gradient(
 180deg,
 #fff 0,
 rgba(255, 255, 255, 0) 53.15%,
 #fff 100%
 ),
-url("/assets/images/image\ 1081\(1\).png");
+url("../images/image\ 1081\(1\).png");
 background-repeat: no-repeat;
 background-position: center;
 margin-top: 40px;
@@ -4342,6 +4342,7 @@ text-align: center;
 .reviews_title_mob span {
 color: var(--red);
 }
+
 .reviews_slides {
 display: -webkit-box !important;
 display: -ms-flexbox !important;
@@ -4421,7 +4422,7 @@ align-items: center !important;
 -ms-flex-pack: center !important;
 justify-content: center !important;
 margin: 0 5px;
-background-image: url("/assets/images/image\(6\).png");
+background-image: url("../images/image\(6\).png");
 }
 .car_list_slide_header img,
 .form_image_block {
@@ -4444,10 +4445,10 @@ gap: 10px !important;
 width: 50px;
 }
 .video_case:first-child {
-background-image: url("/assets/images/123.png");
+background-image: url("../images/123.png");
 }
 .video_case:last-child {
-background-image: url("/assets/images/1234.png");
+background-image: url("../images/1234.png");
 }
 .btn_video {
 margin-top: 34px;
@@ -4473,7 +4474,7 @@ top,
 rgba(255, 255, 255, 0) 36%,
 #fff 100%
 ),
-url("/assets/images/bgshape5_mob.png");
+url("../images/bgshape5_mob.png");
 background-image: -webkit-gradient(
 linear,
 left top, left bottom,
@@ -4481,14 +4482,14 @@ color-stop(0, #fff),
 color-stop(36%, rgba(255, 255, 255, 0)),
 to(#fff)
 ),
-url("/assets/images/bgshape5_mob.png");
+url("../images/bgshape5_mob.png");
 background-image: linear-gradient(
 180deg,
 #fff 0,
 rgba(255, 255, 255, 0) 36%,
 #fff 100%
 ),
-url("/assets/images/bgshape5_mob.png");
+url("../images/bgshape5_mob.png");
 padding-top: 20px;
 }
 .garant_inner {
@@ -4546,7 +4547,7 @@ top,
 rgba(255, 255, 255, 0) 53%,
 #fff 100%
 ),
-url("/assets/images/Group\ 145634.png");
+url("../images/Group145634.png");
 background-image: -webkit-gradient(
 linear,
 left top, left bottom,
@@ -4554,14 +4555,14 @@ color-stop(0, #fff),
 color-stop(53%, rgba(255, 255, 255, 0)),
 to(#fff)
 ),
-url("/assets/images/Group\ 145634.png");
+url("../images/Group145634.png");
 background-image: linear-gradient(
 180deg,
 #fff 0,
 rgba(255, 255, 255, 0) 53%,
 #fff 100%
 ),
-url("/assets/images/Group\ 145634.png");
+url("../images/Group145634.png");
 background-repeat: repeat-y;
 background-size: contain;
 margin-top: 40px;
@@ -4697,7 +4698,7 @@ top,
 transparent 51%,
 transparent 100%
 ),
-url("/assets/images/bgshape2.png");
+url("../images/bgshape2.png");
 background-image: -webkit-gradient(
 linear,
 left top, left bottom,
@@ -4706,7 +4707,7 @@ color-stop(51%, #000),
 color-stop(51%, transparent),
 to(transparent)
 ),
-url("/assets/images/bgshape2.png");
+url("../images/bgshape2.png");
 background-image: linear-gradient(
 to bottom,
 #000 0,
@@ -4714,7 +4715,7 @@ to bottom,
 transparent 51%,
 transparent 100%
 ),
-url("/assets/images/bgshape2.png");
+url("../images/bgshape2.png");
 background-repeat: no-repeat;
 background-size: 100% 100%, 100% 50%;
 background-position: top, bottom;
@@ -4983,8 +4984,10 @@ font-weight: 600;
 line-height: 18px;
 text-align: center;
 }
+.car_list_slider .slick-slide{
+width:280px !important;
+}
 .car_list_slider_slide {
-width: 280px !important;
 height: 384px !important;
 border-radius: 20px;
 }
@@ -5048,6 +5051,7 @@ width: 14px;
 }
 .car_list_slider .slick-track {
 gap: 5px;
+width: max-content !important;
 -webkit-box-pack: center;
 -ms-flex-pack: center;
 justify-content: center;
