@@ -95,26 +95,20 @@ document.addEventListener("DOMContentLoaded", function() {
 
   // 2. Адаптивные слайдеры
   function initSliders() {
-    const sliders = {
+    const isDesktop = window.innerWidth > 1199;
+    
+    // Основные слайдеры (работают всегда)
+    const commonSliders = {
       '.car_list_slider': {
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        infinite: true,
         arrows: true,
         prevArrow: $('.car_list_slider_button_prev'),
         nextArrow: $('.car_list_slider_button_next'),
-      },
-      '.video_cases': {
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        arrows: false,
-        centerMode: true,
-        dots: true,
-        infinite: false,
+        infinite: true,
+        slidesToShow: 3,
         responsive: [
           {
             breakpoint: 1199,
-            settings: "unslick" // или можно указать другие настройки
+            settings: "unslick"
           }
         ]
       },
@@ -136,22 +130,6 @@ document.addEventListener("DOMContentLoaded", function() {
         slidesToScroll: 1,
         arrows: false,
         dots: true,
-        responsive: [
-          {
-            breakpoint: 1199,
-            settings: "unslick"
-          }
-        ]
-      },
-      '.reviews_slides': {
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        arrows: false,
-        centerMode: true,
-        centerPadding: '9px',
-        dots: true,
-        infinite: false,
-        variableWidth: true,
         responsive: [
           {
             breakpoint: 1199,
@@ -185,16 +163,69 @@ document.addEventListener("DOMContentLoaded", function() {
       }
     };
   
-    // Инициализация всех слайдеров
-    Object.entries(sliders).forEach(([selector, config]) => {
+    // Слайдеры только для мобильных
+    const mobileOnlySliders = {
+      '.video_cases': {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
+        centerMode: true,
+        dots: true,
+        infinite: false
+      },
+      '.reviews_slides': {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
+        centerMode: true,
+        centerPadding: '9px',
+        dots: true,
+        infinite: false,
+        variableWidth: true
+      }
+    };
+  
+    // Инициализация основных слайдеров
+    Object.entries(commonSliders).forEach(([selector, config]) => {
       const $slider = $(selector);
       if ($slider.length && !$slider.hasClass('slick-initialized')) {
         $slider.slick(config);
       }
     });
   
-    // Обработчик ресайза теперь не нужен, так как Slick сам обрабатывает breakpoints
+    // Обработка мобильных слайдеров
+    Object.entries(mobileOnlySliders).forEach(([selector, config]) => {
+      const $slider = $(selector);
+      
+      if (!$slider.length) return;
+      
+      if (isDesktop) {
+        // На десктопе - уничтожаем если был инициализирован
+        if ($slider.hasClass('slick-initialized')) {
+          $slider.slick('unslick');
+        }
+      } else {
+        // На мобильных - инициализируем если не был инициализирован
+        if (!$slider.hasClass('slick-initialized')) {
+          $slider.slick(config);
+        }
+      }
+    });
   }
+  
+  // Обработчик ресайза с троттлингом
+  let resizeTimeout;
+  $(window).on('resize', function() {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(function() {
+      initSliders();
+    }, 100);
+  });
+  
+  // Первоначальная инициализация
+  $(document).ready(function() {
+    initSliders();
+  });
 
   // 3. Попапы
   function initPopups() {

@@ -95,6 +95,10 @@ cursor: pointer;
 .mobile-menu {
 overflow: visible;
 }
+footer a{
+        color:var(--GRAY);
+        text-decoration: none;
+}
 .car_slide_footer_info,
 .cause_cases,
 .intro_cases,
@@ -1373,7 +1377,7 @@ color: var(--black) !important;
 opacity: 1 !important;
 }
 .about {
-background-image: url("/assets/images/SMB03407.png");
+background-image: url("../images/SMB03407.png");
 background-repeat: no-repeat;
 background-size: cover;
 background-blend-mode: normal;
@@ -1593,7 +1597,7 @@ rotate: 180deg;
 }
 .reviews {
 height: 1369px;
-background-image: url("/assets/images/image\ 1081.png");
+background-image: url("../images/image\ 1081.png");
 background-repeat: no-repeat;
 background-size: cover;
 background-blend-mode: normal;
@@ -1862,7 +1866,7 @@ height: 62px;
 .video_case {
 height: 574px;
 width: 384px;
-background-image: url("/assets/images/image\ 1097\(1\).png");
+background-image: url("../images/image\ 1097\(1\).png");
 background-repeat: no-repeat;
 background-size: cover;
 background-blend-mode: normal;
@@ -1877,10 +1881,10 @@ display: flex;
 background: var(--red);
 }
 .video_case:first-child {
-background-image: url("/assets/images/image\ 1097.png");
+background-image: url("../images/image\ 1097.png");
 }
 .video_case:last-child {
-background-image: url("/assets/images/image\ 1097\(3\).png");
+background-image: url("../images/image\ 1097\(3\).png");
 }
 .video_case .video_photo {
 margin-top: -39px;
@@ -1986,7 +1990,7 @@ top,
 rgba(255, 255, 255, 0) 36%,
 #fff 100%
 ),
-url("/assets/images/bgshape5.png");
+url("../images/bgshape5.png");
 background-image: -webkit-gradient(
 linear,
 left top, left bottom,
@@ -1994,14 +1998,14 @@ color-stop(0, #fff),
 color-stop(36%, rgba(255, 255, 255, 0)),
 to(#fff)
 ),
-url("/assets/images/bgshape5.png");
+url("../images/bgshape5.png");
 background-image: linear-gradient(
 180deg,
 #fff 0,
 rgba(255, 255, 255, 0) 36%,
 #fff 100%
 ),
-url("/assets/images/bgshape5.png");
+url("../images/bgshape5.png");
 background-repeat: no-repeat;
 background-size: cover;
 background-blend-mode: normal;
@@ -2294,11 +2298,11 @@ padding-right: 96px;
 .form {
 height: 745px;
 background-image: -o-linear-gradient(right, rgba(0, 0, 0, 0) 52.5%, #000 77.5%),
-url("/assets/images/bg3.png");
+url("../images/bg3.png");
 background-image: -webkit-gradient(linear, right top, left top, color-stop(52.5%, rgba(0, 0, 0, 0)), color-stop(77.5%, #000)),
-url("/assets/images/bg3.png");
+url("../images/bg3.png");
 background-image: linear-gradient(270deg, rgba(0, 0, 0, 0) 52.5%, #000 77.5%),
-url("/assets/images/bg3.png");
+url("../images/bg3.png");
 background-repeat: no-repeat;
 background-size: cover;
 background-blend-mode: normal;
@@ -2676,9 +2680,12 @@ display: -ms-flexbox !important;
 display: flex !important;
 gap: 40px;
 }
+.car_list_slider .slick-slide{
+        width: 614px !important;
+}
 .car_list_slider_slide {
-height: 767px;
-width: 592px;
+height: 767px !important;
+width: 614px !important;
 border-radius: 40px;
 background: var(--white);
 -ms-flex-negative: 0;
@@ -3436,7 +3443,7 @@ top,
 rgba(255, 255, 255, 0) 68%,
 #fff 100%
 ),
-url("/assets/images/bg1.png");
+url("..images/bg1.png");
 background-image: -webkit-gradient(
 linear,
 left top, left bottom,
@@ -3444,14 +3451,14 @@ color-stop(0, #fff),
 color-stop(68%, rgba(255, 255, 255, 0)),
 to(#fff)
 ),
-url("/assets/images/bg1.png");
+url("../images/bg1.png");
 background-image: linear-gradient(
 180deg,
 #fff 0,
 rgba(255, 255, 255, 0) 68%,
 #fff 100%
 ),
-url("/assets/images/bg1.png");
+url("../images/bg1.png");
 background-repeat: no-repeat;
 background-size: cover;
 background-blend-mode: normal;
