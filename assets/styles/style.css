@@ -4987,6 +4987,10 @@ text-align: center;
 .car_list_slider .slick-slide{
 width:280px !important;
 }
+footer a{
+        color:var(--GRAY);
+        text-decoration: none;
+}
 .car_list_slider_slide {
 height: 384px !important;
 border-radius: 20px;
@@ -5109,6 +5113,10 @@ align-items: center;
 .nav_links_mobile_ver {
 gap: 5px;
 margin-top: 10px;
+}
+
+.nav_links_mobile_ver{
+        display: flex;
 }
 .nav_links span,
 .nav_links_mobile_ver span {
